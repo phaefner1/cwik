@@ -19,31 +19,47 @@ COMMAND="$1"
 shift
 
 case "$COMMAND" in
+    # cwik create
     create)
         Type="$1"
         shift
         case "$Type" in
+            
+            # cwik create category
             category)
                 if [ -z "$1" ]; then
                     echo "$prefix Error | Missing Argument <category_name>"
                     exit 1
                 fi
-
-                echo "$prefix creating category: $1"
+                
+                Path="$1"
+                shift
+                
+                echo "$prefix creating category: $1 in $path"
                 ;;
+            
+            # cwik create article
             article)
                 if [ -z "$1" ]; then
                     echo "$prefix Error | Missing Argument <article_name>"
                     exit 1
                 fi
-                echo "$prefix creating article: $1"
+
+                Path="$1"
+                shift
+
+                echo "$prefix creating article: $1 in $Path"
                 ;;
+
+            # catch the junk
             *)
                 echo "$prefix Error | Unknown Type: $Type"
                 exit 1
                 ;;
         esac
         ;;
+    
+    # more coming soon
     *)
         echo "$prefix WIP"
         ;;
