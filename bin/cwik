@@ -1,7 +1,11 @@
 #!/bin/bash
 
+# paths
 DB_PATH="$HOME/.cwik.db"
-INIT_SQL="$(dirname "$0")/../sql/init.sql"
+SCRIPT_PATH="$(readlink -f "$0")"
+PROJECT_ROOT="$(dirname "$(dirname "$SCRIPT_PATH")")"
+INIT_SQL="$PROJECT_ROOT/sql/init.sql"
+
 
 # Auto-init DB if not exists
 if [ ! -f "$DB_PATH" ]; then
@@ -10,4 +14,4 @@ if [ ! -f "$DB_PATH" ]; then
     echo "[cwik] Done. Database created at $DB_PATH"
 fi
 
-echo "[cwik] Ready. Subcommands coming soon."
+echo "[cwik] Ready. WIP"
