@@ -32,10 +32,11 @@ case "$COMMAND" in
                     exit 1
                 fi
                 
-                Path="$1"
+                Name="$1"
                 shift
+                Path="$1"
                 
-                echo "$prefix creating category: $1 in $path"
+                echo "$prefix creating category: $Name in $Path"
                 ;;
             
             # cwik create article
@@ -45,8 +46,9 @@ case "$COMMAND" in
                     exit 1
                 fi
 
-                Path="$1"
+                Name="$1"
                 shift
+                Path="$1"
 
                 echo "$prefix creating article: $1 in $Path"
                 ;;
