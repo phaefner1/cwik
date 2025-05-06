@@ -39,7 +39,7 @@ case "$COMMAND" in
                 echo "$prefix creating article: $1"
                 ;;
             *)
-                echo "$prefix Error | Unknown Type: $1"
+                echo "$prefix Error | Unknown Type: $Type"
                 exit 1
                 ;;
         esac
