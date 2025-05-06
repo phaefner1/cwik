@@ -6,18 +6,48 @@ SCRIPT_PATH="$(readlink -f "$0")"
 PROJECT_ROOT="$(dirname "$(dirname "$SCRIPT_PATH")")"
 INIT_SQL="$PROJECT_ROOT/sql/init.sql"
 
+prefix="[cwik]"
 
 # Auto-init DB if not exists
 if [ ! -f "$DB_PATH" ]; then
-    echo "[cwik] Initializing database..."
+    echo "$prefix Initializing database..."
     sqlite3 "$DB_PATH" < "$INIT_SQL"
-    echo "[cwik] Done. Database created at $DB_PATH"
+    echo "$prefix Done. Database created at $DB_PATH"
 fi
 
-for arg in "$@"; do
-    echo "found arg $arg"
-done
+COMMAND="$1"
+shift
 
+case "$COMMAND" in
+    create)
+        Type="$1"
+        shift
+        case "$Type" in
+            category)
+                if [ -z "$1" ]; then
+                    echo "$prefix Error | Missing Argument <category_name>"
+                    exit 1
+                fi
+
+                echo "$prefix creating category: $1"
+                ;;
+            article)
+                if [ -z "$1" ]; then
+                    echo "$prefix Error | Missing Argument <article_name>"
+                    exit 1
+                fi
+                echo "$prefix creating article: $1"
+                ;;
+            *)
+                echo "$prefix Error | Unknown Type: $1"
+                exit 1
+                ;;
+        esac
+        ;;
+    *)
+        echo "$prefix WIP"
+        ;;
+esac
 
 
 # echo "[cwik] Ready. WIP"
