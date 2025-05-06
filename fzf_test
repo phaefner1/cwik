@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# fzf test
+
+# colors
+GREY='\e[90m'
+RESET='\e[0m'
+
+
+# keybinds
+clear
+echo -e "${GREY}[F1: Help]  [F2: Edit]  [F3: Delete]  [F9: Quit]${CYAN}"
+
+# example data / output
+selected=$(printf "%s\n" \
+  "Linux/Firewall/Nftables" \
+  "Linux/Systemd/Service Notes" \
+  "Linux/SSH/Keys" \
+  "Linux/SSH/Agent" \
+  "Linux/Networking" | fzf \
+    --prompt="Search: " \
+    --no-sort \
+    --no-hscroll \
+    --border \
+    --height=95% \
+    --info=inline \
+    --expect=enter,f1,f2,f3 \
+	--bind "F9:abort")
+
+clear
+
+# echo selected item
+if [[ -n "$selected" ]]; then
+  echo "[cwik] You selected: $selected"
+else
+  echo "[cwik] Aborted."
+fi
+
