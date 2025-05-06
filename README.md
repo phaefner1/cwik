@@ -1,6 +1,6 @@
 # cwik
 <p align="center">
-  <img src="cwik-logo.png" alt="cwik logo" width="200" />
+  <img src="assets/cwik-logo.png" alt="cwik logo" width="200" />
 </p>
 
 
