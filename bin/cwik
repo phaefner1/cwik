@@ -1,0 +1,13 @@
+#!/bin/bash
+
+DB_PATH="$HOME/.cwik.db"
+INIT_SQL="$(dirname "$0")/../sql/init.sql"
+
+# Auto-init DB if not exists
+if [ ! -f "$DB_PATH" ]; then
+    echo "[cwik] Initializing database..."
+    sqlite3 "$DB_PATH" < "$INIT_SQL"
+    echo "[cwik] Done. Database created at $DB_PATH"
+fi
+
+echo "[cwik] Ready. Subcommands coming soon."
