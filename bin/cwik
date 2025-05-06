@@ -14,4 +14,10 @@ if [ ! -f "$DB_PATH" ]; then
     echo "[cwik] Done. Database created at $DB_PATH"
 fi
 
-echo "[cwik] Ready. WIP"
+for arg in "$@"; do
+    echo "found arg $arg"
+done
+
+
+
+# echo "[cwik] Ready. WIP"
