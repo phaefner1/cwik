@@ -1,5 +1,8 @@
 # cwik
-![cwik logo](logo.png)
+<p align="center">
+  <img src="logo.png" alt="cwik logo" width="200" />
+</p>
+
 
 > A terminal-based personal wiki with categories, article management, and SQLite storage — built for Linux users who live in the shell.
 
